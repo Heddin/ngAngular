@@ -1,14 +1,24 @@
-<div class="col s6 m3">
-  <div class="card">
+<div class="">
+  <div class="card" appHover >
     <div class="card-image">
       <img src="{{user.image}}">
-      <span class="card-title">{{user.name}}</span>
+      <span
+        [ngClass]="{'marked':isMarked}"
+        class="card-title"
+      >{{user.name | uppercase}}</span>
     </div>
     <div class="card-content">
-      <p>{{user.geo}}</p>
+      <ul>
+        <li> - {{user.geo.state }}</li>
+        <li> - {{user.geo.city}}</li>
+        <li> - {{user.geo.street}}</li>
+      </ul>
     </div>
     <div class="card-action">
-      <a href="#">This is a link</a>
+      <a
+        (click)="onClick()"
+        class="waves-effect waves-light btn"
+      >Отметить</a>
     </div>
   </div>
 </div>
